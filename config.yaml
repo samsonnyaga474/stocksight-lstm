@@ -1,0 +1,54 @@
+# StockSight Configuration
+
+app:
+  name: "StockSight"
+  version: "1.0.0"
+  description: "Stock Price Prediction System using LSTM"
+  disclaimer: "This application is for educational and research purposes only. Predictions are not financial advice."
+
+data:
+  default_period: "5y"
+  sequence_length: 60
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  cache_enabled: true
+  cache_dir: "data/raw"
+  features:
+    - Open
+    - High
+    - Low
+    - Close
+    - Volume
+
+model:
+  input_size: 5
+  hidden_size_1: 64
+  hidden_size_2: 32
+  dropout: 0.2
+  output_size: 1
+  learning_rate: 0.001
+  batch_size: 32
+  max_epochs: 100
+  early_stopping_patience: 10
+  random_seed: 42
+
+training:
+  optimizer: "Adam"
+  loss: "MSE"
+  device: "auto"  # auto, cpu, cuda
+
+paths:
+  models_dir: "models"
+  checkpoints_dir: "models/checkpoints"
+  scalers_dir: "models/scalers"
+  metadata_dir: "models/metadata"
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_samples: "data/samples"
+  database: "database/stocksight.db"
+  logs: "logs"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

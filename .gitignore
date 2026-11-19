@@ -1,0 +1,105 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment
+.env
+.env.local
+*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Model artifacts (large files - keep structure only)
+models/checkpoints/*.pt
+models/checkpoints/*.pth
+models/scalers/*.joblib
+models/scalers/*.pkl
+models/metadata/*.json
+!models/checkpoints/.gitkeep
+!models/scalers/.gitkeep
+!models/metadata/.gitkeep
+
+# Data (keep samples, ignore large downloads)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/external/*
+!data/external/.gitkeep
+!data/samples/
+
+# Database
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+database/*
+!database/.gitkeep
+
+# Experiments
+experiments/*
+!experiments/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Testing and tooling
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+pip-wheel-metadata/
+
+# Node tooling (local browser test harness)
+node_modules/
+package-lock.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.bak
