@@ -15,11 +15,14 @@ from src.utils.helpers import ensure_dir
 
 def _safe_upload_name(name: str) -> str:
     """Sanitize uploaded filename: strip path components, allow only safe chars."""
-    base = Path(name).name
+    base = str(name).replace("\\", "/").rsplit("/", 1)[-1]
     base = re.sub(r"[^\w.\-]", "_", base)
-    if not base.lower().endswith(".csv"):
-        base = base + ".csv"
-    return base[:120] or "upload.csv"
+    base = re.sub(r"\.{2,}", "_", base)
+    stem, dot, ext = base.rpartition(".")
+    if not dot or ext.lower() != "csv":
+        stem, ext = base, "csv"
+    stem = stem.strip("._-")[:110] or "upload"
+    return f"{stem}.csv"
 
 
 def render():
